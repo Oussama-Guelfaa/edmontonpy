@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Meetups</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 2em auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5em;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            background: #f1f1f1;
+            margin-bottom: 1em;
+            padding: 1em;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        ul li h2 {
+            margin: 0;
+            font-size: 1.2em;
+            color: #343a40;
+        }
+
+        ul li span {
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2em;
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Upcoming Meetups</h1>
+    </header>
+    <main>
+        {% if meetups %}
+            <ul>
+                {% for meetup in meetups %}
+                    <li>
+                        <h2>{{ meetup.title }}</h2>
+                        <span>{{ meetup.date.strftime('%B %d, %Y') }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No meetups available at the moment. Please check back later.</p>
+        {% endif %}
+    </main>
+    <footer>
+        <p>&copy; 2024 Meetup Organizer | <a href="#">Contact Us</a></p>
+    </footer>
+</body>
+</html>
